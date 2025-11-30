@@ -3,257 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing Page Sederhana</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Healthy Secret - Premium PO System</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    /* 1. GLOBAL STYLE */
+    :root {
+      --primary: #0a74da;   
+      --accent: #d4af37;    
+      --accent-light: #ffda79; 
+      --dark: #333;
+      --light-bg: #f9fbfd;
+      --disabled-gray: #b0b0b0;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif; 
+      background-color: var(--light-bg); 
+      color: var(--dark);
+      overflow-x: hidden;
     }
+    
+    html { scroll-behavior: smooth; }
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 70vh;
-      background: #f3f7ff;
-      text-align: center;
-      padding: 20px;
-    }
-    .hero h1 {
-      margin-bottom: 10px;
-    }
-    .hero p {
-      max-width: 500px;
-      margin-bottom: 20px;
-    }
-    .btn {
-      padding: 12px 24px;
-      background: #0a74da;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #eee;
-      margin-top: 20px;
-    }
-  .gallery {
-      padding: 40px 20px;
-      text-align: center;
-      background: #fff;
-    }
-    .gallery h2 {
-      margin-bottom: 20px;
-    }
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .gallery-container img {
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-      height: 180px;
-    }
-
-  .gallery {
-      padding: 50px 20px;
-      text-align: center;
-    }
-    .gallery h2 {
-      margin-bottom: 25px;
-      font-size: 28px;
-    }
-    .gallery-slider {
-      display: flex;
-      overflow: hidden;
-      gap: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .slide {
-      min-width: 250px;
-      background: #fff;
-      border-radius: 16px;
-      padding: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-    .slide img {
-      width: 100%;
-      border-radius: 12px;
-      height: 180px;
-      object-fit: cover;
-    }
-    .slide h3 { margin: 10px 0 5px; }
-    .card-btn {
-      padding: 10px 15px;
-      border: none;
-      background: #0a74da;
+    /* 2. PO BANNER & TIMER */
+    .po-banner {
+      background-color: #212529;
       color: #fff;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .controls {
-      margin-top: 15px;
-    }
-    .controls button {
-      font-size: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 5px;
-    }
-
-  .testimonials {
-      padding: 50px 20px;
       text-align: center;
-      background: #f8faff;
-    }
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .testi-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      font-style: italic;
-    }
-
-  .menu-card img {
-    width: 150px;
-    height: 150px;   /* dari sebelumnya 160px → jadi lebih kecil */
-    object-fit: cover;
-    border-radius: 10px;
-    text-align: center;
-  }
-
-
-    .location {
-      padding: 50px 20px;
-      text-align: center;
-    }
-    .location iframe {
-      width: 90%;
-      height: 350px;
-      border: none;
-      border-radius: 12px;
-    }
-
-    .wa-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: #fff;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-  /* Sticky Header */
-    .sticky {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #0a74da;
-    }
-
-    /* Fade-in animation */
-    .fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-    }
-    .fade.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Smooth scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-
-  .hero-slider {
+      padding: 12px 0;
+      font-size: 13px;
       position: relative;
-      height: 70vh;
-      overflow: hidden;
+      z-index: 1031;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    .slides {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .slide-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-    .hero-text {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.45);
-      padding: 20px 30px;
-      border-radius: 10px;
-      color: #fff;
-      text-align: center;
+    
+    .timer-box {
+      background: rgba(255,255,255,0.15);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--accent-light);
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 14px;
     }
 
+    /* 3. NAVBAR */
+    .navbar { transition: all 0.3s ease; padding: 15px 0; top: 0; }
+    .navbar.scrolled { background: rgba(255, 255, 255, 0.95); box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 10px 0; }
+    .nav-link { color: #333 !important; font-weight: 600; transition: all 0.3s ease; position: relative; }
+    .nav-link:hover { color: var(--primary) !important; }
+    .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--accent); transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* 4. HERO SECTION */
+    .hero-slider { position: relative !important; height: 70vh; width: 100%; overflow: hidden; display: block; }
+    .slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .slide-img { width: 100%; height: 100%; object-fit: cover; position: absolute; opacity: 0; transition: opacity 1s ease; }
+    
+    .hero-text { 
+      position: absolute !important; top: 50% !important; left: 50% !important; 
+      transform: translate(-50%, -50%) !important; z-index: 100; width: 90%; max-width: 800px; 
+      text-align: center; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(4px); 
+      padding: 40px; border-radius: 20px; color: white; box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+      transition: transform 0.3s ease; 
+    }
+    .hero-text:hover { transform: translate(-50%, -52%) !important; border: 1px solid rgba(255, 218, 121, 0.3); }
+    .hero-text h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent-light); margin-bottom: 15px; }
+    
+    .btn-hero { 
+      background: var(--accent-light); color: #333; border: none; border-radius: 50px; 
+      font-weight: bold; padding: 12px 35px; transition: all 0.3s ease; text-decoration: none; 
+      display: inline-block; margin-top: 15px; 
+    }
+    .btn-hero:hover { background: #fff; color: var(--primary); transform: translateY(-3px); }
+
+    /* 5. FEATURES & TESTIMONIAS */
+    .features { position: relative; z-index: 20; margin-top: -60px; padding-bottom: 50px; }
+    .feature-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0 20px; }
+    .feature-box { flex: 1; min-width: 280px; background: #ffffff; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-bottom: 4px solid transparent; transition: all 0.3s ease; }
+    .feature-box:hover { transform: translateY(-10px); border-bottom: 4px solid var(--accent); }
+    .icon { font-size: 40px; background: #fdfbf7; width: 90px; height: 90px; line-height: 90px; border-radius: 50%; margin: 0 auto 20px auto; box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1); transition: 0.3s; }
+    .feature-box:hover .icon { transform: scale(1.1); background: #fff9e6; }
+    
+    .testimonials { padding: 50px 20px; text-align: center; background: #f8faff; }
+    .testi-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+    .testi-card:hover { transform: scale(1.02); }
+
+    /* 6. MENU & CARD */
+    .gallery, .menu-section { padding: 60px 20px; text-align: center; background: #f9fbfd; }
+    
+    /* Scroll Manual sldier */
+    #menuScroll { display: flex; gap: 18px; overflow-x: auto; scroll-behavior: smooth; padding: 20px 10px; width: 85%; margin: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; border-radius: 10px; }
+    #menuScroll::-webkit-scrollbar { display: none; }
+    
+    /* Menu Grid */
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    
+    .slide, .menu-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: all 0.4s ease; border: 1px solid transparent; position: relative; }
+    .slide { display: inline-block; width: 260px; flex-shrink: 0; padding: 15px; text-align: center; vertical-align: top; }
+    .menu-card { display: flex; flex-direction: column; scroll-margin-top: 100px; }
+    
+    /* Logika Menu Closed/Open */
+    .menu-card:not(.closed):hover, .slide:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: var(--accent-light); }
+    
+    .menu-card.closed { filter: grayscale(100%); opacity: 0.7; }
+    .menu-card.closed .btn-pesan, 
+    .menu-card.closed .qty-input { background-color: var(--disabled-gray); cursor: not-allowed; pointer-events: none; border-color:#ccc; }
+    .menu-card.closed img { opacity: 0.6; }
+
+    .status-badge { position: absolute; top: 15px; left: 15px; padding: 5px 12px; border-radius: 50px; color: white; font-size: 11px; font-weight: bold; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .badge-open { background: var(--primary); }
+    .badge-closed { background: #555; }
+
+    .slide img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; transition: 0.5s; } 
+    .menu-card img { width: 100%; height: 200px; object-fit: cover; transition: 0.5s; }
+    .menu-card:hover img { transform: scale(1.05); }
+
+    .card-body { padding: 20px; }
+    .price { color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; display: block; }
+    
+    /* INPUT QTY */
+    .action-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+    .qty-input { width: 60px; padding: 8px; text-align: center; border: 1px solid #ddd; border-radius: 8px; font-weight: bold; color: var(--primary); }
+    
+    /* BUTTONS */
+    .btn-overview { width: 100%; background: #eef2ff; color: var(--primary); border: none; padding: 10px; border-radius: 8px; font-weight: 600; margin-bottom: 10px; transition: 0.3s; }
+    .btn-overview:hover { background: var(--primary); color: white; }
+    .btn-pesan { flex: 1; background: var(--primary); color: white; border: none; padding: 10px; border-radius: 8px; font-weight: 600; transition: 0.3s; }
+    .btn-pesan:hover { background: var(--accent); transform: translateY(-2px); }
+    .card-btn { background: var(--primary); color: white; border: none; padding: 10px; border-radius: 8px; width: 100%; }
+
+
+    /* 8. EXTRAS */
+    footer { text-align: center; padding: 30px; background: #333; color: white; margin-top: 0; }
+    .wa-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; display: flex; align-items: center; gap: 10px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+    /* Modals */
+    #popup, .cart-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 9999; }
+    .popup-content, .cart-box { background: #fff; margin: 0; width: 90%; max-width: 450px; border-radius: 12px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); animation: slideDown 0.4s ease-out; overflow: hidden; }
+    .popup-header, .cart-header { background: var(--primary); padding: 15px; color: white; display: flex; justify-content: space-between; }
+    .popup-body, .cart-body { padding: 20px; max-height: 350px; overflow-y: auto; }
+    .popup-footer, .cart-footer { padding: 20px; text-align: center; border-top: 1px solid #eee; }
+    .close-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+    .checkout-btn { width: 100%; background: #25d366; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; }
+    .btn-close-modal { background: #dc3545; color: white; border: none; padding: 8px 30px; border-radius: 50px; }
+    @keyframes slideDown { from { transform: translate(-50%, -60%); opacity: 0; } to { transform: translate(-50%, -50%); opacity: 1; } }
+    
+    /* Preloader */
+    #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--primary); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease; }
+    .loader { border: 5px solid rgba(255,255,255,0.1); border-top: 5px solid var(--accent-light); border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .floating-shape { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4; animation: float 10s infinite alternate; }
+    .shape-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: rgba(212, 175, 55, 0.15); }
+    .shape-2 { bottom: 10%; right: -5%; width: 400px; height: 400px; background: rgba(15, 23, 42, 0.1); }
+    @keyframes float { 0% { transform: translateY(0); } 100% { transform: translateY(30px); } }
+    @media (max-width: 768px) { .features { margin-top: 30px; } }
   </style>
 </head>
 
-
 <body>
-      <nav class="navbar navbar-expand-sm navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="home">Healthy Secret :D</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Menu</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Order Now</a>
-        </li>
 
-      </ul>
+  <div id="preloader"><div class="loader"></div></div>
+  <div class="floating-shape shape-1"></div>
+  <div class="floating-shape shape-2"></div>
+
+  <div class="po-banner">
+    <div id="banner-text">📢 <b>PRE-ORDER BATCH OPEN</b> | Close Order:</div>
+    <div id="countdown" class="d-flex align-items-center gap-1 mx-2">
+        <span class="timer-box" id="days">0</span>d :
+        <span class="timer-box" id="hours">00</span>h :
+        <span class="timer-box" id="minutes">00</span>m :
+        <span class="timer-box" id="seconds">00</span>s
     </div>
+    <div>| Pengiriman: <span id="deliveryDate" style="color:var(--accent-light); font-weight:bold;">...</span></div>
   </div>
-</nav>
 
-  <!-- SLIDING IMGAE -->
-  <section class="hero-slider">
+  <nav class="navbar navbar-expand-sm navbar-light sticky-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#home" style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 24px; color: var(--primary);">
+        <img src="healthy secret logo.png" alt="Logo" style="height: 60px; margin-right: 10px; border-radius: 6px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#menu-gallery">Menu PO</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#" onclick="toggleCart(); return false;" style="display: flex; align-items: center; gap: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16" style="margin-bottom: 2px;">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              </svg>
+              <span>Cart</span>
+              <span id="cart-count" style="background:#ffda79; color:#333; padding:0 6px; border-radius:50%; font-size:12px; font-weight:bold;">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-slider" id="home"> 
     <div class="slides" id="heroSlides">
       <img src="Soto.jpeg" class="slide-img" />
       <img src="NasiBakar.jpeg" class="slide-img" />
@@ -263,136 +227,491 @@
       <img src="Misop.jpeg" class="slide-img" />
       <img src="Liwet.jpeg" class="slide-img" />
     </div>
-    <div class="hero-text">
-      <h1>Welcome to Healthy Secret</h1>
-      <p>Vegan Friendly, Healthy, Organic & Natural Food</p>
+
+    <div class="hero-text" data-aos="zoom-in" data-aos-duration="1000">
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: #ffda79;">
+        Healthy Secret 🌿
+      </h1>
+      <p style="font-family: 'Poppins', sans-serif;">
+        <b>PRE-ORDER SYSTEM OPEN</b><br>
+        Nikmati kelezatan makanan vegan yang sehat dan higienis. 
+        Dibuat fresh sesuai pesanan (Made by Order).
+      </p>
+      <a href="#menu-gallery" class="btn-hero">Ikut PO Sekarang</a>
     </div>
   </section>
 
-  <footer>
-    Created By TeamDLO
-  </footer>
+  <section class="features">
+    <div class="feature-container">
+      <div class="feature-box" data-aos="fade-up">
+        <div class="icon">🌿</div> <h3>100% Vegan</h3>
+        <p>Bahan nabati pilihan terbaik, aman untuk kesehatan.</p>
+      </div>
+      <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon">✨</div> <h3>Made by Order</h3>
+        <p>Hanya dimasak saat PO, menjamin kesegaran maksimal.</p>
+      </div>
+      <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon">📅</div> <h3>PO Mingguan</h3>
+        <p>Pesan dalam 4 hari, pengiriman serentak di hari ke-7.</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Testimonials Section -->
   <section class="testimonials">
-    <h2>Customer Testimonials</h2>
+    <h2 data-aos="fade-up">Customer Testimonials 🌟</h2>
     <div class="testimonial-grid">
-      <div class="testi-card">
-        <p>“非常好吃”</p>
-        <h4>- Lim Kun Cui</h4>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="100">
+        <p>“非常好吃”</p> <h4>- Lim Min Tan</h4>
       </div>
-      <div class="testi-card">
-        <p>“Best Vegan food ive ever had!!”</p>
-        <h4>- Moriarti</h4>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="200">
+        <p>“Best Vegan food ive ever had!!”</p> <h4>- Moriarti</h4>
       </div>
-      <div class="testi-card">
-        <p>“Alamak sedapnyaaa, ini yang papa cari”</p>
-        <h4>- Supratman</h4>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="300">
+        <p>“Vegetarian yang terenak yang pernah saya coba”</p> <h4>- Supratman</h4>
       </div>
     </div>
   </section>
 
-  <!-- Menu Grid -->
-<div class="menu-card">
-  <img src="Soto.jpeg">
-  <h3>Soto</h3>
-  <button class="card-btn overview-btn" data-info="Ayam, sambal, tepung, minyak, nasi">Overview</button>
-</div>
+  <section class="gallery" id="menu-gallery">
+    <h2 data-aos="fade-up">Highlight Menu 🌿</h2>
+    
+    <div style="display:flex; align-items:center; justify-content:center; gap:12px;">
+      <button id="btnLeft" style="padding:10px 14px; border-radius:8px; border:none; background:#0a74da; color:#fff; cursor:pointer; font-size:18px;">←</button>
 
+      <div id="menuScroll">
+        <div class="slide">
+          <img src="Soto.jpeg" alt="Nasi Soto">
+          <h3>Nasi Soto</h3> <p>Rp 30.000</p>
+          <button class="card-btn" onclick="scrollToMenu('target-soto')">Lihat Detail ➜</button>
+        </div>
+        <div class="slide">
+          <img src="Liwet.jpeg" alt="Nasi Liwet">
+          <h3>Nasi Liwet</h3> <p>Rp 30.000</p>
+          <button class="card-btn" onclick="scrollToMenu('target-liwet')">Lihat Detail ➜</button>
+        </div>
+        <div class="slide">
+          <img src="Misop.jpeg" alt="Mie Sop">
+          <h3>Mie Sop</h3> <p>Rp 25.000</p>
+          <button class="card-btn" onclick="scrollToMenu('target-misop')">Lihat Detail ➜</button>
+        </div>
+        <div class="slide">
+          <img src="NasiBakar.jpeg" alt="Nasi Bakar">
+          <h3>Nasi Bakar</h3> <p>Rp 25.000</p>
+          <button class="card-btn" onclick="scrollToMenu('target-bakar')">Lihat Detail ➜</button>
+        </div>
+        <div class="slide">
+          <img src="Onigiri.jpeg" alt="Onigiri">
+          <h3>Onigiri</h3> <p>Rp 18.000</p>
+          <button class="card-btn" onclick="scrollToMenu('target-onigiri')">Lihat Detail ➜</button>
+        </div>
+        <div class="slide">
+          <img src="Takoyaki.jpeg" alt="Takoyaki">
+          <h3>Takoyaki</h3> <p>Rp 40.000</p>
+          <button class="card-btn" onclick="scrollToMenu('target-takoyaki')">Lihat Detail ➜</button>
+        </div>
+        <div class="slide">
+          <img src="VeganChasio.jpeg" alt="Nasi Chasio">
+          <h3>Nasi Chasio</h3> <p>Rp 25.000</p>
+          <button class="card-btn" onclick="scrollToMenu('target-chasio')">Lihat Detail ➜</button>
+        </div>
+      </div>
 
-
-  <!-- Location Section -->
-  <section class="location">
-    <h2>Lokasi UMKM</h2>
-    <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-  </section>
-
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20pesan%20menu" class="wa-btn">WhatsApp</a>
-
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h2>Menu Unggulan UMKM</h2>
-    <div class="gallery-slider" id="slider">
-      <div class="slide"><img src="Soto.jpeg" alt="Menu 1" /><h3>Nasi Soto</h3><p>Rp 30.000</p><button class="card-btn">Pesan</button></div>
-      <div class="slide"><img src="Liwet.jpeg" alt="Menu 2" /><h3>Nasi Liwet</h3><p>Rp 30.000</p><button class="card-btn">Pesan</button></div>
-      <div class="slide"><img src="Misop.jpeg" alt="Menu 3" /><h3>Mie Sop</h3><p>Rp 25.000</p><button class="card-btn">Pesan</button></div>
-      <div class="slide"><img src="NasiBakar.jpeg" alt="Menu 3" /><h3>Nasi Bakar</h3><p>Rp 25.000</p><button class="card-btn">Pesan</button></div>
-      <div class="slide"><img src="Onigiri.jpeg" alt="Menu 3" /><h3>Onigiri</h3><p>Rp 18.000</p><button class="card-btn">Pesan</button></div>
-      <div class="slide"><img src="Takoyaki.jpeg" alt="Menu 3" /><h3>Takoyaki</h3><p>Rp 40.000</p><button class="card-btn">Pesan</button></div>
-      <div class="slide"><img src="VeganChasio.jpeg" alt="Menu 3" /><h3>Nasi Chasio</h3><p>Rp 25.000</p><button class="card-btn">Pesan</button></div>
+      <button id="btnRight" style="padding:10px 14px; border-radius:8px; border:none; background:#0a74da; color:#fff; cursor:pointer; font-size:18px;">→</button>
     </div>
-    <div class="controls">
-      <button onclick="prevSlide()">&#10094;</button>
-      <button onclick="nextSlide()">&#10095;</button>
-    </div>
   </section>
-
-  <div id="popup" 
-     style="display:none; position:fixed; top:50%; left:50%; 
-     transform:translate(-50%, -50%); background:#fff; padding:20px; 
-     border-radius:10px; box-shadow:0 4px 20px rgba(0,0,0,0.3); 
-     z-index:2000; max-width:300px; text-align:center;">
-  
-  <h3>Detail Menu</h3>
-  <p id="popupContent"></p>
-  <button onclick="closePopup()" class="card-btn">Close</button>
-</div>
-
 
   <script>
-    function showMessage() {
-      alert("Tombol ditekan! Ini contoh interaksi JavaScript.");
-    }
-  let index = 0;
-    function showSlide() {
-      const slider = document.getElementById('slider');
-      slider.style.transform = `translateX(${-index * 270}px)`;
-    }
-    function nextSlide() {
-      index = (index + 1) % 3;
-      showSlide();
-    }
-    function prevSlide() {
-      index = (index - 1 + 3) % 3;
-      showSlide();
-    }
-  let heroIndex = 0;
-    const heroImages = document.querySelectorAll('.slide-img');
-
-    function heroSlider() {
-      heroImages.forEach(img => img.style.opacity = 0);
-      heroImages[heroIndex].style.opacity = 1;
-      heroIndex = (heroIndex + 1) % heroImages.length;
-    }
-    setInterval(heroSlider, 2000);
-    heroSlider();
+  (function(){
+    const container = document.getElementById('menuScroll');
+    const btnL = document.getElementById('btnLeft');
+    const btnR = document.getElementById('btnRight');
+    if (!container) return;
+    function getScrollAmount() { return Math.round(container.clientWidth * 0.8); }
+    function doScrollLeft() { container.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' }); }
+    function doScrollRight() { container.scrollBy({ left: getScrollAmount(), behavior: 'smooth' }); }
+    btnL.addEventListener('click', doScrollLeft);
+    btnR.addEventListener('click', doScrollRight);
+  })();
   </script>
 
-<script>
-    // fade-in elements on scroll
-    const faders = document.querySelectorAll('.fade');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
+  <section class="menu-section">
+    <h2 data-aos="fade-up">Batch PO Minggu Ini ✨</h2>
+    <p style="margin-bottom:40px; color:#666;">
+      Pengiriman: <b style="color:var(--primary)" id="deliveryDateTarget">...</b>
+    </p>
+    
+    <div class="menu-grid">
+      
+      <div class="menu-card" id="target-soto" data-open="true" data-aos="fade-up">
+        <span class="status-badge"></span>
+        <img src="Soto.jpeg" alt="Nasi Soto">
+        <div class="card-body">
+          <h3>Nasi Soto</h3> <span class="price">Rp 30.000</span>
+          <button class="btn-overview overview-btn" data-info="Ayam suwir vegan, kuah kuning rempah tanpa santan, bihun, telur nabati.">Overview</button>
+          
+          <div class="action-row">
+            <input type="number" id="qty-soto" class="qty-input" value="1" min="1">
+            <button class="btn-pesan" onclick="addToCart('Nasi Soto', 30000, 'qty-soto')">+ Pre-Order</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" id="target-liwet" data-open="false" data-aos="fade-up" data-aos-delay="100">
+        <span class="status-badge"></span>
+        <img src="Liwet.jpeg" alt="Nasi Liwet">
+        <div class="card-body">
+          <h3>Nasi Liwet</h3> <span class="price">Rp 30.000</span>
+          <button class="btn-overview overview-btn" data-info="Nasi gurih dimasak dengan santan & rempah, tempe orek, sambal.">Overview</button>
+          
+          <div class="action-row">
+            <input type="number" id="qty-liwet" class="qty-input" value="1" min="1">
+            <button class="btn-pesan" onclick="addToCart('Nasi Liwet', 30000, 'qty-liwet')">+ Pre-Order</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" id="target-misop" data-open="true" data-aos="fade-up" data-aos-delay="200">
+        <span class="status-badge"></span>
+        <img src="Misop.jpeg" alt="Mie Sop">
+        <div class="card-body">
+          <h3>Mie Sop Medan</h3> <span class="price">Rp 25.000</span>
+          <button class="btn-overview overview-btn" data-info="Mie kuning & bihun dengan kuah kaldu rempah vegan, bakso jamur.">Overview</button>
+          
+          <div class="action-row">
+            <input type="number" id="qty-misop" class="qty-input" value="1" min="1">
+            <button class="btn-pesan" onclick="addToCart('Mie Sop', 25000, 'qty-misop')">+ Pre-Order</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" id="target-bakar" data-open="false" data-aos="fade-up">
+        <span class="status-badge"></span>
+        <img src="NasiBakar.jpeg" alt="Nasi Bakar">
+        <div class="card-body">
+          <h3>Nasi Bakar</h3> <span class="price">Rp 25.000</span>
+          <button class="btn-overview overview-btn" data-info="Nasi berbumbu dibungkus daun pisang, isian jamur suwir pedas.">Overview</button>
+          
+          <div class="action-row">
+            <input type="number" id="qty-bakar" class="qty-input" value="1" min="1">
+            <button class="btn-pesan" onclick="addToCart('Nasi Bakar', 25000, 'qty-bakar')">+ Pre-Order</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" id="target-onigiri" data-open="true" data-aos="fade-up" data-aos-delay="100">
+        <span class="status-badge"></span>
+        <img src="Onigiri.jpeg" alt="Onigiri">
+        <div class="card-body">
+          <h3>Onigiri</h3> <span class="price">Rp 18.000</span>
+          <button class="btn-overview overview-btn" data-info="Nasi kepal ala Jepang dengan nori renyah dan isian tuna vegan.">Overview</button>
+          
+          <div class="action-row">
+            <input type="number" id="qty-onigiri" class="qty-input" value="1" min="1">
+            <button class="btn-pesan" onclick="addToCart('Onigiri', 18000, 'qty-onigiri')">+ Pre-Order</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" id="target-takoyaki" data-open="false" data-aos="fade-up" data-aos-delay="200">
+        <span class="status-badge"></span>
+        <img src="Takoyaki.jpeg" alt="Takoyaki">
+        <div class="card-body">
+          <h3>Takoyaki</h3> <span class="price">Rp 40.000</span>
+          <button class="btn-overview overview-btn" data-info="Bola-bola tepung Jepang isi octopus vegan, saus takoyaki.">Overview</button>
+          
+          <div class="action-row">
+            <input type="number" id="qty-takoyaki" class="qty-input" value="1" min="1">
+            <button class="btn-pesan" onclick="addToCart('Takoyaki', 40000, 'qty-takoyaki')">+ Pre-Order</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card" id="target-chasio" data-open="true" data-aos="fade-up">
+        <span class="status-badge"></span>
+        <img src="VeganChasio.jpeg" alt="Nasi Chasio">
+        <div class="card-body">
+          <h3>Nasi Chasio</h3> <span class="price">Rp 25.000</span>
+          <button class="btn-overview overview-btn" data-info="Nasi putih dengan irisan chasio vegan panggang madu.">Overview</button>
+          
+          <div class="action-row">
+            <input type="number" id="qty-chasio" class="qty-input" value="1" min="1">
+            <button class="btn-pesan" onclick="addToCart('Nasi Chasio', 25000, 'qty-chasio')">+ Pre-Order</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <footer>
+    <p>Created By TeamDLOV 2024</p>
+  </footer>
+
+  <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20pesan%20menu" class="wa-btn">WhatsApp</a>
+
+  <div id="popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h3>Detail Menu</h3> <button onclick="closePopup()" class="close-icon">×</button>
+      </div>
+      <div class="popup-body">
+        <p id="popupContent">Keterangan menu...</p>
+      </div>
+      <div class="popup-footer">
+        <button onclick="closePopup()" class="btn-close-modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cartModal" class="cart-overlay">
+    <div class="cart-box">
+      <div class="cart-header">
+        <h3>Daftar Pesanan (PO)</h3> <button onclick="toggleCart()" class="close-btn">×</button>
+      </div>
+      <div id="cartList" class="cart-body">
+        <p style="text-align:center; color:#888;">Keranjang PO kosong.</p>
+      </div>
+      <div class="cart-footer">
+        <h4>Total: <span id="cartTotal">Rp 0</span></h4>
+        <button onclick="checkoutWA()" class="checkout-btn">Kirim Pesanan (PO) ke WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script>
+    // KONFIGURASI BATCH PO (UBAH DISINI)
+    const PO_CONFIG = {
+        // Tanggal PO Ditutup: Tahun-Bulan-Tanggal Jam:Menit:Detik
+        closeDate: "2025-12-06T00:00:00", 
+        
+        // Info Tanggal Pengiriman yang akan ditampilkan
+        deliveryText: "Selasa, 9 Desember 2025" 
+    };
+
+    // 1. INIT & PO LOGIC
+    window.addEventListener("load", function() {
+      document.getElementById('preloader').style.opacity = '0';
+      setTimeout(() => { document.getElementById('preloader').style.display = 'none'; }, 500);
+      AOS.init({ duration: 1000, once: true, offset: 100 });
+      
+      updateDeliveryInfo(); // Update teks pengiriman sesuai config
+      startCountdown();     // Mulai timer berdasarkan config
+      checkPOStatus();      // Cek apakah sudah tutup atau belum
+    });
+
+    // Update Tampilan Tanggal Pengiriman
+    function updateDeliveryInfo() {
+      document.getElementById('deliveryDate').innerText = PO_CONFIG.deliveryText;
+      document.getElementById('deliveryDateTarget').innerText = PO_CONFIG.deliveryText;
+    }
+
+    // 2. COUNTDOWN TIMER
+    function startCountdown() {
+      const deadline = new Date(PO_CONFIG.closeDate).getTime();
+
+      const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const diff = deadline - now;
+
+        if (diff <= 0) {
+            clearInterval(timer);
+            // Tampilan saat waktu habis
+            document.getElementById('countdown').innerHTML = "<span style='color:#ff6b6b; font-weight:bold;'>PO DITUTUP</span>";
+            document.getElementById('banner-text').innerText = "🚫 BATCH CLOSED";
+            checkPOStatus(); // Paksa kunci semua menu
+            return;
+        }
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').innerText = d;
+        document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+        document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+        document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+      }, 1000);
+    }
+
+    // 3. TANGGAL PENGIRIMAN (Diganti dengan Config di atas agar stabil)
+    function calculateDelivery() {
+    }
+
+    // 4. CEK STATUS MENU (AUTO LOCK IF TIME OVER)
+    function checkPOStatus() {
+      const now = new Date().getTime();
+      const deadline = new Date(PO_CONFIG.closeDate).getTime();
+      const isTimeOver = now >= deadline; // True jika waktu habis
+
+      const cards = document.querySelectorAll('.menu-card');
+      cards.forEach(card => {
+        const isManualOpen = card.getAttribute('data-open') === 'true';
+        const badge = card.querySelector('.status-badge');
+        const btn = card.querySelector('.btn-pesan');
+        const input = card.querySelector('.qty-input');
+
+        // Jika Waktu Habis ATAU Menu diset manual "False" di HTML
+        if (isTimeOver || !isManualOpen) {
+          card.classList.add('closed'); 
+          badge.innerText = "CLOSED";
+          badge.classList.remove("badge-open");
+          badge.classList.add("badge-closed");
+          
+          btn.innerText = isTimeOver ? "PO Ditutup" : "Tidak Tersedia";
+          btn.disabled = true;
+          if(input) input.disabled = true;
+        } else {
+          card.classList.remove('closed');
+          badge.innerText = "OPEN PO";
+          badge.classList.add("badge-open");
+          badge.classList.remove("badge-closed");
+          
+          btn.innerText = "+ Pre-Order";
+          btn.disabled = false;
+          if(input) input.disabled = false;
+        }
+      });
+    }
+
+    // 5. NAVBAR SCROLL
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // 6. HERO SLIDER AUTO
+    let heroIndex = 0;
+    const heroImages = document.querySelectorAll('.slide-img');
+    if(heroImages.length > 0) {
+        function heroSlider() {
+          heroImages.forEach(img => img.style.opacity = 0);
+          heroImages[heroIndex].style.opacity = 1;
+          heroIndex = (heroIndex + 1) % heroImages.length;
+        }
+        setInterval(heroSlider, 4000); heroSlider();
+    }
+
+    // 7. SCROLL TO MENU
+    function scrollToMenu(elementId) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        element.style.transition = "0.3s";
+        element.style.transform = "scale(1.05)";
+        element.style.border = "2px solid #0a74da";
+        setTimeout(() => { element.style.transform = "scale(1)"; element.style.border = "none"; }, 1500);
+      }
+    }
+
+    // 8. POPUP
+    document.querySelectorAll('.overview-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('popupContent').innerText = btn.getAttribute('data-info');
+        document.getElementById('popup').style.display = 'block';
       });
     });
-    faders.forEach(f => observer.observe(f));
-</script>
+    function closePopup() { document.getElementById('popup').style.display = 'none'; }
 
-<script>
-  document.querySelectorAll('.overview-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const details = btn.getAttribute('data-info');
-      document.getElementById('popupContent').innerText = details;
-      document.getElementById('popup').style.display = 'block';
-    });
-  });
+    // 9. SHOPPING CART LOGIC (WITH QTY)
+    let cart = [];
+    
+    function addToCart(name, price, qtyId) {
+      // Cek dulu apakah waktu sudah habis sebelum mengizinkan tambah ke cart
+      const now = new Date().getTime();
+      const deadline = new Date(PO_CONFIG.closeDate).getTime();
+      if(now >= deadline) {
+          alert("Maaf, Periode PO sudah ditutup!");
+          return;
+      }
 
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-  }
-</script>
+      const qtyInput = document.getElementById(qtyId);
+      let qty = parseInt(qtyInput.value);
+      
+      if(isNaN(qty) || qty < 1) {
+        alert("Jumlah pesanan minimal 1");
+        return;
+      }
+
+      const existingItem = cart.find(item => item.name === name);
+      
+      if (existingItem) {
+        existingItem.qty += qty; 
+      } else {
+        cart.push({ name: name, price: price, qty: qty }); 
+      }
+
+      updateCartUI();
+      alert(`${name} (${qty}x) berhasil masuk List PO!`);
+      qtyInput.value = 1;
+    }
+
+    function updateCartUI() {
+      let totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      document.getElementById('cart-count').innerText = totalItems;
+
+      let listHtml = ''; 
+      let totalHarga = 0;
+
+      if(cart.length === 0) {
+        listHtml = '<p style="text-align:center; color:#888; margin-top:20px;">Keranjang PO kosong.</p>';
+      } else {
+        cart.forEach((item, index) => {
+          let subtotal = item.price * item.qty;
+          totalHarga += subtotal;
+          
+          listHtml += `
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:10px 0;">
+              <div>
+                <div style="font-weight:600;">${item.name}</div>
+                <div style="font-size:13px; color:#555;">${item.qty} x Rp ${item.price.toLocaleString('id-ID')}</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-weight:bold;">Rp ${subtotal.toLocaleString('id-ID')}</span>
+                <span onclick="hapusItem(${index})" style="color:red; cursor:pointer; font-weight:bold; font-size:18px;">×</span>
+              </div>
+            </div>`;
+        });
+      }
+      document.getElementById('cartList').innerHTML = listHtml;
+      document.getElementById('cartTotal').innerText = 'Rp ' + totalHarga.toLocaleString('id-ID');
+    }
+
+    function hapusItem(index) { cart.splice(index, 1); updateCartUI(); }
+    function toggleCart() {
+      let modal = document.getElementById('cartModal');
+      modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function checkoutWA() {
+      if(cart.length === 0) return alert("List PO kosong!");
+      
+      // Cek Waktu Lagi sebelum kirim
+      const now = new Date().getTime();
+      const deadline = new Date(PO_CONFIG.closeDate).getTime();
+      if(now >= deadline) return alert("Maaf, Waktu PO sudah habis!");
+
+      let msg = "Halo Admin Healthy Secret, saya mau ikut PO Batch ini:%0A%0A";
+      let total = 0;
+      
+      cart.forEach(item => {
+        let subtotal = item.price * item.qty;
+        msg += `- ${item.name} (${item.qty}x) : Rp ${subtotal.toLocaleString('id-ID')}%0A`;
+        total += subtotal;
+      });
+      
+      const deliveryDate = document.getElementById('deliveryDate').innerText;
+      msg += `%0A*Total Estimasi: Rp ${total.toLocaleString('id-ID')}*`;
+      msg += `%0A*Estimasi Pengiriman: ${deliveryDate}*`;
+      msg += "%0A%0AMohon konfirmasi pembayarannya. Terima kasih!";
+      window.open(`https://wa.me/6281234567890?text=${msg}`);
+    }
+  </script>
 
 </body>
 </html>
